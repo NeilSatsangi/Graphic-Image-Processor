@@ -1,0 +1,91 @@
+Assignment 5: Image Processing (Part 2)
+
+Project Description:
+This is an image processor that can take in a ppm file and make modifications to it. Some examples
+of modifications include but are not limited to:
+- brightening/darkening an image
+- flipping an image
+- creating a greyscale version of an image
+
+Overview of Changes:
+- In order to meet the additional requirements for Assignment 5 we were forced to re-evaluate and
+modify our original design. We added functionality to our controller to support the additional blur,
+sharpen, grayscale, and sepia modifications to our images.
+
+Class/Interfaces Overview
+
+Model
+- Pixel (class)
+Represents a pixel with 3 values that represent an rgb
+
+- Image (class)
+An Image is a 2D array of colors that represent every pixel within the image
+
+- ImageModel (interface)
+An ImageModel represents a set of operations that can be performed on an image
+
+- ImageModelImpl (class) -> implements ImageModel
+Implements the ImageModel interface. Implements all functionality of the interface and allows the
+model to perform these operations. Also stores a hashmap containing a set of Strings mapped to 2D
+arrays of Colors.
+
+- ImageUtil (class)
+Contains Utility Methods that take in PPM files through reading and output PPM files through a
+writing operation.
+
+View
+- ImageView (interface)
+Represents a view for the ImageModel and the ImageController that displays a visual representation
+of text that prompts the user and guides them through the program
+
+- ImageViewImpl (class) -> implements ImageView
+Implements the ImageView interface and provides functionality to allow the program to render
+messages at various points throughout the program.
+
+Controller
+- ImageController (interface)
+Represents a controller for the Image Processing program. This controller links the model and the
+view together and allows them to work with one another. Also takes in user inputs and allows the
+user to run the program by loading various images, operating on them, and then saves the images to
+a specified file location on the desktop.
+
+- ImageControllerImpl (class) -> implements ImageController
+This class implements the ImageController interface and provides the functionality to allow the
+controller to run the processor and interact with the files on the computer.
+
+Command Line Arguments
+- In order to run this program for yourself please do the following:
+- Go to RunProjectTest and run the main method
+- Type the following command sequence
+   - "load src/res/test1.ppm test1"
+   - "horizontal-flip test1 test1-horizontal"
+   - "save example-horizontal-flip test1-horizontal"
+   - "q"
+- If you now go to the res folder on your computer
+  you will have a file named "example-horizontal-flip"
+  that should look the same as the horizontal-test.ppm image in the folder
+
+Image Citation:
+- We created this image ourselves and we are authorizing its use in this project.
+We got the New York skyline picture from the assignment 5 page on Canvas.
+
+Things we changed from Assignment4 -> Assignment 5:
+- Image Util: We added 2 new methods to Image Util that read and write image files that are not
+ppm files
+
+-ImageControllerImpl: We added two helper methods that the completeOperation method calls. One
+method blurs and sharpens images by calling the model the other method grayscales and sepias images
+by calling the model. We also added four more switch cases for the four new image manipulations.
+Changed load and save to include non PPM files. Also added switch case for file command input.
+
+-ImageModelImpl: We added two more public methods. One method blurs and sharpens an Image's Pixel
+Grid and the other grayscales and sepias the image
+
+
+Things we changed from Assignment5 -> Assignment 6:
+- Image Util: Changed all Write and Read methods to support absolute paths so the user can
+get and save files from any directory
+-Added view.GUI class that gives graphical user interface of the ImageModel
+-Uses same controllorer as Assignment 5
+
+

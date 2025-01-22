@@ -1,0 +1,22 @@
+load src/res/test1.ppm t
+load src/res/nyc.jpg n
+
+red-component t tR
+green-component t tG
+blue-component t tB
+lumia-component t tL
+value-component t tV
+intensity-component t tI
+horizontal-flip t tH
+vertical-flip t tV
+brighten 20 t tBright
+darken 20 t tDark
+blur t tBlur
+sharpen t tSharp
+sepia t tSep
+grayscale tGray
+sepia n nSep
+save nSep.png nSep
+save tSharp.jpg tSharp
+save tRed tR
+

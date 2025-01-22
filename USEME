@@ -1,0 +1,75 @@
+Assignment 5: Image Processing (Part 2)
+
+The script commands supported are:
+red-component
+blue-component
+green-component
+luma-component
+value-component
+intensity-component
+horizontal-flip
+vertical-flip
+brighten
+darken
+blur
+sharpen
+grayscale
+sepia
+save
+load
+file
+
+All of the commands except save, load and file manipuate images and add new instances of Images to a
+hashmap in the model
+
+save and load don't maipulate images. Load adds an image to the hashmap in the model so the image
+can be later called on. Save writes new image files and saves them in the res folder
+
+for all the commands that manipualte images except for brighten and darken the format is:
+Command SrcImage DestinationName
+
+Command is the specific command the user wants, srcImage is the image that is having a new version
+of it be manipulated, and DestinationName is what the newImage is called
+
+Brighten and darken work similarly except their format is
+Command Number SrcImage DestinationName
+ex: red-component test1 testRed
+the only thing that is different is the number, which represents how much to brighten or darken
+an image by
+
+The format for save is
+save newImgName imgKey
+ex: save test1.jpg test1
+
+save is the command, newImgName is the name the image will have in the res folder and imgKey is what
+the image is called in the hashmap
+
+The format for load is
+load src/res/imgName imgKey
+ex: load src/res/test1.ppm t
+load is the command, src/res/imgName is the filePath of the image and should be in the res folder
+of the application, imgKey is what the image is called in the hashMap and how future commands will
+call on the image.
+
+The format for file is
+file src/res/name
+This takes is a text file in the res folder and executes all the commands in the file
+ex: file src/res/script.txt
+
+Lastly Quit or Q quits the application. This is not case sensitive
+ex: q
+
+
+Assignment 6 UseMe view.GUI
+
+-To start load an image using the load button.
+-Pick A Image file to load "jpg", "gif", "ppm", "png", "bpm" these file formats are supported.
+
+-Click the buttons ie Red-component, blue-componenet, sepia, brighten, blur etc. to manipulate the
+-image
+
+-Save the image whenever you want by using the save button. Select the directory you want to save in,
+-don't enter file type in name if you want to save as ppm. For other formats specify format in
+-the name
+
+-Press Quit Button on bottom to quit
